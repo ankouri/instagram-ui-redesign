@@ -6,7 +6,7 @@ import {
   InputBase,
   Button,
   IconButton,
-  CardMedia
+  CardMedia,
 } from "@mui/material";
 import styled from "styled-components";
 import { styled as muiStyled, alpha } from "@mui/material/styles";
@@ -17,7 +17,6 @@ import {
   Send,
   Add,
 } from "@mui/icons-material";
-import BadgeUnstyled from "@mui/core/BadgeUnstyled";
 import { useHistory } from "react-router";
 
 export default function Navbar(props) {
@@ -31,10 +30,10 @@ export default function Navbar(props) {
   return (
     <CustomBar position="sticky" elevation={0}>
       <Container>
-        <CustomToolbar sx={{ display: { md: "none", xs: "block" } }}><TextLogo component="img" src="assets/text-logo.svg" alt=""  />
-</CustomToolbar>
+        <CustomToolbar sx={{ display: { md: "none", xs: "block" } }}>
+          <TextLogo component="img" src="assets/text-logo.svg" alt="" />
+        </CustomToolbar>
         <Toolbar>
-
           <IconButton
             onClick={handleCloseMenu}
             sx={{ display: { md: "block", xs: "none" } }}
@@ -45,7 +44,7 @@ export default function Navbar(props) {
               <MenuButton style={{ transform: "rotate(180deg)" }} />
             )}
           </IconButton>
-          <Search sx={{ display: { md: "block", xs: "none"}}}>
+          <Search sx={{ display: { md: "block", xs: "none" } }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -60,34 +59,37 @@ export default function Navbar(props) {
             </StyledBadge>
           </IconButton>
 
-          <IconButton onClick={ () => { history.push('/messages') } }>
+          <IconButton
+            onClick={() => {
+              history.push("/messages");
+            }}
+          >
             <StyledBadge variant="dot" overlap="circular">
               <Send />
             </StyledBadge>
           </IconButton>
-         
-          <IconButton sx={{ display: { md: "none", xs: "block"}}}>
-          <StyledBadge>
-            <Add />
+
+          <IconButton sx={{ display: { md: "none", xs: "block" } }}>
+            <StyledBadge>
+              <Add />
             </StyledBadge>
           </IconButton>
-          <AddPostButton startIcon={<Add />} >Add Post</AddPostButton>
+          <AddPostButton startIcon={<Add />}>Add Post</AddPostButton>
         </Toolbar>
       </Container>
     </CustomBar>
   );
 }
 const CustomToolbar = styled(Toolbar)`
-  min-height:40px !important;
-  margin-top:8px;
+  min-height: 40px !important;
+  margin-top: 8px;
 `;
 const TextLogo = styled(CardMedia)`
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%)
     contrast(103%);
-    width: 150px;
+  width: 150px;
   margin: auto;
 `;
-
 
 const AddPostButton = styled(Button)`
   && {
@@ -102,7 +104,7 @@ const AddPostButton = styled(Button)`
   }
 `;
 
-const StyledBadge = styled(BadgeUnstyled)`
+const StyledBadge = styled("div")`
   position: relative;
   span {
     padding: 0;
