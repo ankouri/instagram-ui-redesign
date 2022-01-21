@@ -1,19 +1,16 @@
 import React, { useRef, useState } from "react";
-import { Container, Grid} from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import LeftMenu from "./../components/LeftMenu";
 import Navbar from "../components/Navbar";
 import Stories from "./../components/Stories";
-import styled from 'styled-components';
-import Feeds from './../components/Feeds';
-import Messages from '../components/Messages';
-
-
-
+import styled from "styled-components";
+import Feeds from "./../components/Feeds";
+import Messages from "../components/Messages";
 
 export default function Home(props) {
   const menuRef = useRef();
   const [menuOpen, setMenuOpen] = useState(true);
-  const { feeds, messages, stories } = props;
+  const { feeds, messages } = props;
 
   return (
     <Container disableGutters>
@@ -44,13 +41,8 @@ export default function Home(props) {
           <Container>
             <Stories />
             <ContainerPost>
-               {
-                 feeds ? <Feeds /> : ''
-               }
-               {
-                 messages ? <Messages/> : ''
-               }
-        
+              {feeds ? <Feeds /> : ""}
+              {messages ? <Messages /> : ""}
             </ContainerPost>
           </Container>
         </Grid>
@@ -60,10 +52,10 @@ export default function Home(props) {
 }
 
 const ContainerPost = styled.div`
-  height:calc(100vh - 225px);
-  width:100%;
-  overflow-y:scroll;
-  -ms-overflow-style: none; 
+  height: calc(100vh - 225px);
+  width: 100%;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;

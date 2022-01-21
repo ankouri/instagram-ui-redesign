@@ -1,35 +1,32 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
-import { CardMedia, IconButton, Avatar, Skeleton } from "@mui/material";
+import { CardMedia, IconButton, Avatar } from "@mui/material";
 import {
   ChatBubbleOutline,
   BookmarkBorder,
   Favorite,
 } from "@mui/icons-material";
-import PostSkeleton from './PostSkeleton';
-
-
+import PostSkeleton from "./PostSkeleton";
 
 export default function Post(props) {
-  const { post, profile, likes, comments } = props;
+  const { post, profile } = props;
   const [likePost, setLikePost] = useState(false);
   const [loading, setLoading] = useState(true);
   const imgEl = useRef();
 
-
   const handleLikePost = () => {
     setLikePost(!likePost);
   };
-  useEffect(()=>{
+  useEffect(() => {
     const timer = setTimeout(() => {
-        setLoading(false)
-      }, 3000);
-      return () => clearTimeout(timer);
+      setLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
   }, []);
   return (
     <PostContainer>
       {loading ? (
-         <PostSkeleton/>
+        <PostSkeleton />
       ) : (
         <>
           <PostContent onDoubleClick={handleLikePost}>
@@ -40,12 +37,7 @@ export default function Post(props) {
                   : { animationName: "like-heart" }
               }
             />
-            <PostAsset
-              component="img"
-              ref={ imgEl }
-              src={post}
-              alt="post"
-            />
+            <PostAsset component="img" ref={imgEl} src={post} alt="post" />
           </PostContent>
           <PostFooter>
             <PostPublisher>

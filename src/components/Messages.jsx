@@ -9,7 +9,6 @@ import {
   ListItemAvatar,
   List,
   ListItem,
-  ListItemButton,
   Stack,
   ListItemText,
   Avatar,
@@ -18,7 +17,7 @@ import { styled as muiStyled, alpha } from "@mui/material/styles";
 import styled from "styled-components";
 import { Edit } from "@mui/icons-material";
 import MessageItem from "./MessageItem";
-import { profiles  } from '../dummyData';
+import { profiles } from "../dummyData";
 
 export default function Messages() {
   return (
@@ -26,7 +25,9 @@ export default function Messages() {
       <Grid item md={8} xs={12}>
         <ChatContainerArea>
           <ChatHeader>
-            <Avatar sx={{ width: 35, height: 35 }} src="assets/profiles/1.jpeg">I</Avatar>
+            <Avatar sx={{ width: 35, height: 35 }} src="assets/profiles/1.jpeg">
+              I
+            </Avatar>
             <Stack>
               <h4>Abdellah</h4>
               <h6>6 min ago</h6>
@@ -37,7 +38,10 @@ export default function Messages() {
               return (
                 <>
                   <MessageItem
-                    sender={{ img: 'assets/profiles/1.jpeg', username: "ankouri" }}
+                    sender={{
+                      img: "assets/profiles/1.jpeg",
+                      username: "ankouri",
+                    }}
                     own={false}
                     msg="Hi Ali !"
                     timeslaps="5min ago"
@@ -77,11 +81,11 @@ export default function Messages() {
                       }
                     >
                       <ListItemAvatar>
-                        <Avatar src={ profiles[key].image }></Avatar>
+                        <Avatar src={profiles[key].image}></Avatar>
                       </ListItemAvatar>
                       <ListItemText
                         sx={{ fontFamily: "Maven Pro" }}
-                        primary={profiles[key].username }
+                        primary={profiles[key].username}
                         secondary="Hi Ankouri!"
                       />
                     </ListItem>
@@ -143,7 +147,7 @@ const ChatHeader = muiStyled("div")(({ theme }) => ({
 }));
 const ChatTextarea = styled.div`
   height: 86%;
-      overflow-y: scroll;
+  overflow-y: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
