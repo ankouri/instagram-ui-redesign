@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import SingleStory from "./SingleStory";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
